@@ -11,20 +11,34 @@
 	},
 	"formatter": {
 		"enabled": true,
+		"ignore": [
+			"main.js"
+		],
 		"indentStyle": "tab"
 	},
 	"organizeImports": {
-		"enabled": true
+		"enabled": true,
+		"ignore": [
+			"main.js"
+		]
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true
-		}
+		},
+		"ignore": [
+			"main.js"
+		]
 	},
 	"javascript": {
 		"formatter": {
 			"quoteStyle": "double"
+		}
+	},
+	"json": {
+		"formatter": {
+			"lineWidth": 1
 		}
 	}
 }
