@@ -1,5 +1,7 @@
 import * as en from "./locale/en.json";
 
-export const resources = {
-	en: { translation: en },
-} as const;
+const NAMESPACE = "plugin-sample-plugin";
+
+i18next.addResourceBundle("en", NAMESPACE, en);
+
+export const t = i18next.getFixedT(null, NAMESPACE);
