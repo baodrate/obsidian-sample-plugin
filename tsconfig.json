@@ -22,6 +22,9 @@
 			"ES2020",
 			"ES2021",
 			"ES2022"
+		],
+		"types": [
+			"obsidian-typings"
 		]
 	},
 	"include": [
