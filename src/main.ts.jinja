@@ -1,0 +1,28 @@
+import { Plugin } from "obsidian";
+import {
+	DEFAULT_SETTINGS,
+	{{ class_name }}SettingTab,
+	type {{ class_name }}Settings,
+} from "./settings";
+
+export default class {{ class_name }}Plugin extends Plugin {
+	settings: {{ class_name }}Settings;
+
+	async onload() {
+		console.debug("loading {{ project_name }} plugin");
+		await this.loadSettings();
+		this.addSettingTab(new {{ class_name }}SettingTab(this.app, this));
+	}
+
+	async onunload() {
+		console.debug("unloading {{ project_name }} plugin");
+	}
+
+	async loadSettings() {
+		this.settings = { ...DEFAULT_SETTINGS, ...(await this.loadData()) };
+	}
+
+	async saveSettings() {
+		await this.saveData(this.settings);
+	}
+}
