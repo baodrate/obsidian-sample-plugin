@@ -1,0 +1,69 @@
+_exclude:
+    # default copier excludes; see: https://copier.readthedocs.io/en/stable/configuring/#exclude
+    - "copier.yml"
+    - "~*"
+    - "*.py[co]"
+    - "__pycache__"
+    - ".git"
+    - ".DS_Store"
+    - ".svn"
+    # copier project files
+    - "copier_extensions"
+    - ".gitignore"
+    - ".idea"
+    - ".venv"
+    - ".ropeproject"
+    - "requirements.in"
+    - "requirements.txt"
+    # project build files
+    - "node_modules"
+    - "main.js"
+_jinja_extensions:
+    - copier_templates_extensions.TemplateExtensionLoader
+    - copier_extensions/slugify.py:SlugifyExtension
+
+# TODO:
+# - make fundingUrl optional
+# - set author
+# - set authorUrl
+
+project_name:
+    type: str
+    help: A human-readable project name
+    placeholder: Style Settings
+    validator: >-
+        {% if not (project_name | regex_search('^[A-Za-z][A-Za-z0-9]+( [A-Za-z0-9]+)*$')) %}
+        project_name must start with a letter, followed one or more letters, and should be "Title Cased".
+        {% endif %}
+
+project_description:
+    type: str
+    help: A description of the plugin
+    placeholder: Offers controls for adjusting theme, plugin, and CSS snippet styles.
+
+# generated values
+project_slug:
+    type: str
+    default: "{{ project_name | slugify }}"
+    when: false
+    validator: >-
+        {% if not (project_slug | regex_search('^[a-z][a-z0-9]*(-[a-z0-9]+)*$')) %}
+        project_slug must start with a letter, followed one or more letters, digits or dashes all lowercase.
+        {% endif %}
+
+package_name:
+    type: str
+    default: "obsidian-{{ project_slug }}"
+    when: false
+
+class_name:
+    type: str
+    default: "{{ project_slug.split('-') | map('capitalize') | join }}"
+    when: false
+
+_message_after_copy: |
+    Your project "{{ project_name }}" has been created successfully!
+    project_desc="{{ project_description }}"
+    project_slug="{{ project_slug }}"
+    package_name="{{ package_name }}"
+    class_name="{{ class_name }}"
