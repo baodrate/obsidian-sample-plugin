@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": {{ package_name | to_json }},
 	"version": "0.1.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": {{ project_description | to_json }},
 	"main": "main.js",
 	"scripts": {
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
