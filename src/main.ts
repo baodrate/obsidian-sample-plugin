@@ -13,11 +13,14 @@ export default class MyPlugin extends Plugin {
 	settings: MyPluginSettings;
 
 	async onload() {
+		console.debug("loading Sample plugin");
 		await this.loadSettings();
 		this.addSettingTab(new SampleSettingTab(this.app, this));
 	}
 
-	onunload() {}
+	onunload() {
+		console.debug("unloading Sample plugin");
+	}
 
 	async loadSettings() {
 		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
