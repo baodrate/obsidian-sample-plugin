@@ -38,13 +38,17 @@ project_name:
 project_description:
     type: str
     help: A description of the plugin
-    placeholder: Offers controls for adjusting theme, plugin, and CSS snippet styles.
+    placeholder: Offers controls for adjusting theme, plugin, and CSS snippet styles
+    validator: >-
+        {% if not project_description or (project_description | regex_search('.*[.]$')) %}
+        project_description should be non-empty and should not end in a period
+        {% endif %}
 
-# generated values
+# values with defaults generated from previous answers
 project_slug:
     type: str
+    help: A sluggified version of the project name, used as the plugin ID
     default: "{{ project_name | slugify }}"
-    when: false
     validator: >-
         {% if not (project_slug | regex_search('^[a-z][a-z0-9]*(-[a-z0-9]+)*$')) %}
         project_slug must start with a letter, followed one or more letters, digits or dashes all lowercase.
@@ -52,14 +56,15 @@ project_slug:
 
 package_name:
     type: str
+    help: The npm package name
     default: "obsidian-{{ project_slug }}"
-    when: false
 
 class_name:
     type: str
+    help: The prefix of the plugin class, i.e. `class ${class_name}Plugin extends Plugin`
     default: "{{ project_slug.split('-') | map('capitalize') | join }}"
-    when: false
 
+# post-generated message
 _message_after_copy: |
     Your project "{{ project_name }}" has been created successfully!
     project_desc="{{ project_description }}"
