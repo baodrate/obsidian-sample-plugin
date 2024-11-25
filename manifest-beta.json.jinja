@@ -8,6 +8,8 @@
 	{% if author_url -%}
 	"authorUrl": {{ author_url | to_json }},
 	{% endif -%}
-	"fundingUrl": "https://obsidian.md/pricing",
+	{% if funding_url -%}
+	"fundingUrl": {{ funding_url | to_json }},
+	{% endif -%}
 	"isDesktopOnly": false
 }

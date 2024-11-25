@@ -21,9 +21,6 @@ _jinja_extensions:
     - copier_templates_extensions.TemplateExtensionLoader
     - copier_extensions/slugify.py:SlugifyExtension
 
-# TODO:
-# - make fundingUrl optional
-
 project_name:
     type: str
     help: A human-readable project name
@@ -56,6 +53,15 @@ author_url:
         author_url should be a url
         {% endif %}
 
+funding_url:
+    type: str
+    help: A URL or multiple URLs to where the users can support your project financially.
+    placeholder: "https://ko-fi.com/johndoe"
+    validator: >-
+        {% if funding_url and not (funding_url | regex_search('^https?://.+[.].+$')) %}
+        funding_url should be a url
+        {% endif %}
+
 # values with defaults generated from previous answers
 project_slug:
     type: str
@@ -81,6 +87,7 @@ _message_after_copy: |
     Your project "{{ project_name }}" has been created successfully!
     author="{{ author }}"
     author_url="{{ author_url }}"
+    funding_url="{{ funding_url }}"
     project_desc="{{ project_description }}"
     project_slug="{{ project_slug }}"
     package_name="{{ package_name }}"
