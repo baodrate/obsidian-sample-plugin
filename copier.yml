@@ -24,7 +24,6 @@ _jinja_extensions:
 
 # TODO:
 # - make fundingUrl optional
-# - set authorUrl
 
 project_name:
     type: str
@@ -48,6 +47,15 @@ author:
     type: str
     help: The author's name.
     placeholder: John Doe
+
+author_url:
+    type: str
+    help: A URL to the author's website. (optional)
+    placeholder: "https://author.dev"
+    validator: >-
+        {% if author_url and not (author_url | regex_search('^https?://.+[.].+$')) %}
+        author_url should be a url
+        {% endif %}
 
 # values with defaults generated from previous answers
 project_slug:
@@ -73,6 +81,7 @@ class_name:
 _message_after_copy: |
     Your project "{{ project_name }}" has been created successfully!
     author="{{ author }}"
+    author_url="{{ author_url }}"
     project_desc="{{ project_description }}"
     project_slug="{{ project_slug }}"
     package_name="{{ package_name }}"
