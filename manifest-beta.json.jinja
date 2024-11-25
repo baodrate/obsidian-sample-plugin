@@ -5,7 +5,9 @@
 	"minAppVersion": "1.0.0",
 	"description": {{ project_description | to_json }},
 	"author": {{ author | to_json }},
-	"authorUrl": "https://obsidian.md",
+	{% if author_url -%}
+	"authorUrl": {{ author_url | to_json }},
+	{% endif -%}
 	"fundingUrl": "https://obsidian.md/pricing",
 	"isDesktopOnly": false
 }

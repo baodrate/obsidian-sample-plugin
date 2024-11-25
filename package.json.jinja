@@ -12,6 +12,9 @@
 	},
 	"keywords": [],
 	"author": {{ author | to_json }},
+	{% if author_url -%}
+	"url": {{ author_url | to_json }},
+	{% endif -%}
 	"license": "MIT",
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
