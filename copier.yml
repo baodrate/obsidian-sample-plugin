@@ -23,7 +23,6 @@ _jinja_extensions:
 
 # TODO:
 # - make fundingUrl optional
-# - set author
 # - set authorUrl
 
 project_name:
@@ -43,6 +42,11 @@ project_description:
         {% if not project_description or (project_description | regex_search('.*[.]$')) %}
         project_description should be non-empty and should not end in a period
         {% endif %}
+
+author:
+    type: str
+    help: The author's name.
+    placeholder: John Doe
 
 # values with defaults generated from previous answers
 project_slug:
@@ -67,6 +71,7 @@ class_name:
 # post-generated message
 _message_after_copy: |
     Your project "{{ project_name }}" has been created successfully!
+    author="{{ author }}"
     project_desc="{{ project_description }}"
     project_slug="{{ project_slug }}"
     package_name="{{ package_name }}"
