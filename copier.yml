@@ -46,7 +46,7 @@ author:
 
 author_url:
     type: str
-    help: A URL to the author's website. (optional)
+    help: (optional) A URL to the author's website.
     placeholder: "https://author.dev"
     validator: >-
         {% if author_url and not (author_url | regex_search('^https?://.+[.].+$')) %}
@@ -55,7 +55,7 @@ author_url:
 
 funding_url:
     type: str
-    help: A URL or multiple URLs to where the users can support your project financially.
+    help: (optional) A URL or multiple URLs to where the users can support your project financially.
     placeholder: "https://ko-fi.com/johndoe"
     validator: >-
         {% if funding_url and not (funding_url | regex_search('^https?://.+[.].+$')) %}
@@ -65,7 +65,7 @@ funding_url:
 # values with defaults generated from previous answers
 project_slug:
     type: str
-    help: A sluggified version of the project name, used as the plugin ID
+    help: (optionally customize) A sluggified version of the project name, used as the plugin ID
     default: "{{ project_name | slugify }}"
     validator: >-
         {% if not (project_slug | regex_search('^[a-z][a-z0-9]*(-[a-z0-9]+)*$')) %}
@@ -74,12 +74,12 @@ project_slug:
 
 package_name:
     type: str
-    help: The npm package name
+    help: (optionally customize) The npm package name
     default: "obsidian-{{ project_slug }}"
 
 class_name:
     type: str
-    help: The prefix of the plugin class, i.e. `class ${class_name}Plugin extends Plugin`
+    help: (optionally customize) The prefix of the plugin class, i.e. `class ${class_name}Plugin extends Plugin`
     default: "{{ project_slug.split('-') | map('capitalize') | join }}"
 
 # post-generated message
