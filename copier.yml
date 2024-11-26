@@ -62,10 +62,19 @@ funding_url:
         funding_url should be a url
         {% endif %}
 
+ci:
+    type: str
+    help: What Continuous Integration service do you want to use?
+    choices:
+        GitHub CI: "github"
+        None: "none"
+    default: "github"
+
 use_release_please:
     type: bool
     help: Use release-please github action to automate releases with Conventional Commit Messages?
-    default: yes
+    when: "{{ ci == 'github' }}"
+    default: "{{ ci == 'github' }}"
 
 # values with defaults generated from previous answers
 project_slug:
@@ -98,4 +107,5 @@ _message_after_copy: |
     package_name="{{ package_name }}"
     class_name="{{ class_name }}"
 
+    ci="{{ ci }}"
     use_release_please="{{ use_release_please }}"
