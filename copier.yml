@@ -44,6 +44,11 @@ author:
     help: The author's name.
     placeholder: John Doe
 
+github_username:
+    type: str
+    help: The author's GitHub user name.
+    default: "{{ author | slugify }}"
+
 author_url:
     type: str
     help: (optional) A URL to the author's website.
@@ -100,6 +105,7 @@ class_name:
 _message_after_copy: |
     Your project "{{ project_name }}" has been created successfully!
     author="{{ author }}"
+    github_username="{{ github_username }}"
     author_url="{{ author_url }}"
     funding_url="{{ funding_url }}"
     project_desc="{{ project_description }}"
