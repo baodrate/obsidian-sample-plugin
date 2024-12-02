@@ -81,7 +81,6 @@ use_release_please:
     when: "{{ ci == 'github' }}"
     default: "{{ ci == 'github' }}"
 
-# values with defaults generated from previous answers
 project_slug:
     type: str
     help: (optionally customize) A sluggified version of the project name, used as the plugin ID
@@ -101,6 +100,15 @@ class_name:
     help: (optionally customize) The prefix of the plugin class, i.e. `class ${class_name}Plugin extends Plugin`
     default: "{{ project_slug.split('-') | map('capitalize') | join }}"
 
+github_repo:
+    type: str
+    help: The url of the github repository for this plugin.
+    default: "{{ github_username }}/{{ package_name }}"
+    validator: >-
+        {% if not (github_repo | regex_search('^[^/]+/[^/]+$')) %}
+        github_repo should be in the format `<USER|ORG>/<REPO_NAME>`
+        {% endif %}
+
 # post-generated message
 _message_after_copy: |
     Your project "{{ project_name }}" has been created successfully!
@@ -112,6 +120,7 @@ _message_after_copy: |
     project_slug="{{ project_slug }}"
     package_name="{{ package_name }}"
     class_name="{{ class_name }}"
+    github_repo="{{ github_repo }}"
 
     ci="{{ ci }}"
     use_release_please="{{ use_release_please }}"
