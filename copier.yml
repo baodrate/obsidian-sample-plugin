@@ -60,8 +60,8 @@ author_url:
 
 funding_url:
     type: str
-    help: (optional) A URL or multiple URLs to where the users can support your project financially.
-    placeholder: "https://ko-fi.com/johndoe"
+    help: (optionally customize) A URL or multiple URLs to where the users can support your project financially.
+    default: "https://github.com/sponsors/{{ github_username }}"
     validator: >-
         {% if funding_url and not (funding_url | regex_search('^https?://.+[.].+$')) %}
         funding_url should be a url

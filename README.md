@@ -32,6 +32,10 @@ Based on [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-
 - add [release-please](https://github.com/googleapis/release-please-action)-based github workflow to automatically bump version numbers and generate changelogs
   - github (pre-)releases are compatible with [BRAT](https://github.com/TfTHacker/obsidian42-brat)
 
+### Meta
+
+- default [funding url](https://docs.obsidian.md/Reference/Manifest#fundingUrl) to [GitHub Sponsors](https://github.com/sponsors)
+
 ### Todo
 
 - [ ] only cut a release-please PR if the build artifacts change
