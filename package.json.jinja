@@ -15,6 +15,9 @@
 	{% if author_url -%}
 	"url": {{ author_url | to_json }},
 	{% endif -%}
+	"repository": "github:{{ github_repo }}",
+	"homepage": "https://github.com/{{ github_repo }}#readme",
+	"bugs": "https://github.com/{{ github_repo }}/issues",
 	{% if funding_url -%}
 	"funding": {{ funding_url | to_json }},
 	{% endif -%}
