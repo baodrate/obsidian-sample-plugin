@@ -51,8 +51,8 @@ github_username:
 
 author_url:
     type: str
-    help: (optional) A URL to the author's website.
-    placeholder: "https://author.dev"
+    help: (optionally customize) A URL to the author's website.
+    default: "https://github.com/{{ github_username }}"
     validator: >-
         {% if author_url and not (author_url | regex_search('^https?://.+[.].+$')) %}
         author_url should be a url
