@@ -17,6 +17,7 @@ Based on [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-
   - global const `DEV` compiles to literal `false` in production build
     - i.e. wrap any development-build-only code in `if (DEV) ...` conditional to enable tree-shaking
   - `DEV:`-labelled code will be dropped from production builds completely
+- default [funding](https://docs.obsidian.md/Reference/Manifest#fundingUrl) to [GitHub Sponsors](https://github.com/sponsors)
 
 ### Fixes
 
