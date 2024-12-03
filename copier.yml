@@ -1,22 +1,4 @@
-_exclude:
-    # default copier excludes; see: https://copier.readthedocs.io/en/stable/configuring/#exclude
-    - "copier.yml"
-    - "~*"
-    - "*.py[co]"
-    - "__pycache__"
-    - ".git"
-    - ".DS_Store"
-    - ".svn"
-    # copier project files
-    - "copier_extensions"
-    - ".idea"
-    - ".venv"
-    - ".ropeproject"
-    - "requirements.in"
-    - "requirements.txt"
-    # project build files
-    - "node_modules"
-    - "main.js"
+_subdirectory: template
 _jinja_extensions:
     - copier_templates_extensions.TemplateExtensionLoader
     - copier_extensions/slugify.py:SlugifyExtension
