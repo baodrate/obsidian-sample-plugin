@@ -22,3 +22,8 @@ updates:
       prefix: "fix"
       prefix-development: "chore"
       include: scope
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      # Check for updates to GitHub Actions every week
+      interval: "weekly"
