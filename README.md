@@ -28,6 +28,7 @@ Based on [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-
 
 ### Build & Release
 
+- use pnpm as package manager instead of npm
 - use [biome](https://biomejs.dev) for linting and formatting, instead of eslint
 - add [release-please](https://github.com/googleapis/release-please-action)-based github workflow to automatically bump version numbers and generate changelogs
   - github (pre-)releases are compatible with [BRAT](https://github.com/TfTHacker/obsidian42-brat)
