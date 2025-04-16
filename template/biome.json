@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.0.5/schema.json",
 	"vcs": {
 		"enabled": false,
 		"clientKind": "git",
@@ -7,28 +7,47 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": []
+		"includes": [
+			"**"
+		]
 	},
 	"formatter": {
 		"enabled": true,
-		"ignore": [
-			"main.js"
+		"includes": [
+			"**",
+			"!**/main.js"
 		],
 		"indentStyle": "tab"
 	},
-	"organizeImports": {
-		"enabled": true,
-		"ignore": [
-			"main.js"
-		]
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"style": {
+				"noInferrableTypes": "error",
+				"noParameterAssign": "error",
+				"noUnusedTemplateLiteral": "error",
+				"noUselessElse": "error",
+				"useAsConstAssertion": "error",
+				"useConst": "error",
+				"useDefaultParameterLast": "error",
+				"useEnumInitializers": "error",
+				"useNumberNamespace": "error",
+				"useSelfClosingElements": "error",
+				"useSingleVarDeclarator": "error",
+				"useTemplate": "error"
+			}
 		},
-		"ignore": [
-			"main.js"
+		"includes": [
+			"**",
+			"!**/main.js"
 		]
 	},
 	"javascript": {
