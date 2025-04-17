@@ -2,6 +2,12 @@
 
 Obsidian plugin [copier](https://github.com/copier-org/copier) template.
 
+## Usage
+
+```sh
+docker run -ti --rm -v <OUTPUT_DIR>:/app <DOCKER_IMAGE>
+```
+
 ## Foundation
 
 Based on [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-plugin) project, with additional features and fixes:
