@@ -1,0 +1,10 @@
+[project]
+name = "obsidian-plugin-template"
+version = "0.1.0"
+description = "Obsidian plugin template"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "copier>=9.6.0",
+    "copier-templates-extensions>=0.3.1",
+]
