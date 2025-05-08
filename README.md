@@ -31,6 +31,7 @@ Based on [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-
 - use `src/` directory and split into multiple files
 - track obsidian type definitions package version
 - upgrade esbuild (`0.17.3` -> `0.24.0`)
+- bump minAppVersion to `1.8.0`
 
 ### Build & Release
 
