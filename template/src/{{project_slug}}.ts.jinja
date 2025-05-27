@@ -6,7 +6,7 @@ import {
 } from "./settings";
 
 export default class {{ class_name }}Plugin extends Plugin {
-	settings: {{ class_name }}Settings;
+	declare settings: {{ class_name }}Settings;
 
 	async onload() {
 		console.debug("loading {{ project_name }} plugin");

@@ -11,7 +11,7 @@ export const DEFAULT_SETTINGS: {{ class_name }}Settings = {
 };
 
 export class {{ class_name }}SettingTab extends PluginSettingTab {
-	plugin: {{ class_name }}Plugin;
+	declare plugin: {{ class_name }}Plugin;
 
 	constructor(app: App, plugin: {{ class_name }}Plugin) {
 		super(app, plugin);

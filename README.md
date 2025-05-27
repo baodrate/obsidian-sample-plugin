@@ -30,7 +30,6 @@ Based on [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-
 - target ES2022 when building (and use newer JS syntax where available)
 - use `src/` directory and split into multiple files
 - track obsidian type definitions package version
-- upgrade esbuild (`0.17.3` -> `0.24.0`)
 - bump minAppVersion to `1.8.0`
 
 ### Build & Release
@@ -39,6 +38,7 @@ Based on [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-
 - use [biome](https://biomejs.dev) for linting and formatting, instead of eslint
 - add [release-please](https://github.com/googleapis/release-please-action)-based github workflow to automatically bump version numbers and generate changelogs
   - github (pre-)releases are compatible with [BRAT](https://github.com/TfTHacker/obsidian42-brat)
+- replace esbuild with [vite](https://vite.dev/)
 
 ### Meta
 
