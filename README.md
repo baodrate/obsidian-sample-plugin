@@ -39,6 +39,8 @@ Based on [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-
 - add [release-please](https://github.com/googleapis/release-please-action)-based github workflow to automatically bump version numbers and generate changelogs
   - github (pre-)releases are compatible with [BRAT](https://github.com/TfTHacker/obsidian42-brat)
 - replace esbuild with [vite](https://vite.dev/)
+- use [husky](https://github.com/typicode/husky) for pre-commit hooks
+  - use [commitlint](https://commitlint.js.org/) to validate commit messages match the [Conventional Commits](https://www.conventionalcommits.org) specification
 
 ### Meta
 
