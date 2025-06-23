@@ -19,10 +19,10 @@ Based on [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-
   - for type-hints for Obsidian's undocumented APIs
 - use [i18next](https://www.i18next.com/) for internationalization
   - use obsidian's [built-in library](https://forum.obsidian.md/t/expose-useful-libraries-to-plugin-devs-incl-i18next/89371) to keep the bundled size small
-- define global `DEV` constant/label for tree-shaking
-  - global variable `DEV` is replaced with literal `true`/`false` in development/production builds, respectively
-    - i.e. code wrapped in `if (DEV) { ... }` will be dropped in non-development builds
-  - `DEV:`-labelled statements will be dropped from production builds completely
+- define global `__DEV__` constant/label for tree-shaking
+  - global variable `__DEV__` is replaced with literal `true`/`false` in development/production builds, respectively
+    - i.e. code wrapped in `if (__DEV__) { ... }` will be dropped in non-development builds
+  - `__DEV__:`-labelled statements will be dropped from production builds completely
 
 ### Fixes
 
