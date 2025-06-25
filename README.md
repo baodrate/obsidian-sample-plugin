@@ -46,6 +46,7 @@ Based on [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-
 
 - default [funding url](https://docs.obsidian.md/Reference/Manifest#fundingUrl) to [GitHub Sponsors](https://github.com/sponsors)
 - (configurable) add a license to the project
+- add `.gitattributes` file
 
 ### Todo
 
